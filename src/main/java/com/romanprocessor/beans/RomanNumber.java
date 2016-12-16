@@ -109,9 +109,13 @@ public class RomanNumber {
                 if (lastOperationIsSubstract) {
                     return false;
                 } else if (lastCharacter.isCanBeSubstracted()) {
-                    lastOperationIsSubstract = true;
-                    times = 1;
-                    lastCharacter = character;
+                    if (lastCharacter.getRestList().contains(character)) {
+                        lastOperationIsSubstract = true;
+                        times = 1;
+                        lastCharacter = character;
+                    } else {
+                        return false;
+                    }
                 } else {
                     return false;
                 }

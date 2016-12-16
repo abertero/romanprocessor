@@ -10,7 +10,7 @@ public enum RomanCharacter {
     D(500, false, false, null),
     C(100, true, true, Arrays.asList(new RomanCharacter[]{D, M})),
     L(50, false, false, null),
-    X(10, true, true, Arrays.asList(new RomanCharacter[]{L, D})),
+    X(10, true, true, Arrays.asList(new RomanCharacter[]{L, C})),
     V(5, false, false, null),
     I(1, true, true, Arrays.asList(new RomanCharacter[]{V, X}));
 

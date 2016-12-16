@@ -16,7 +16,8 @@ public class Main {
                 new RomanNumber("XXXX"),
                 new RomanNumber("MMXVI"),
                 new RomanNumber("MDLXIX"),
-                new RomanNumber("MDLXVIII")
+                new RomanNumber("MDLXVIII"),
+                new RomanNumber("MMMCMXCIX")
         };
         System.out.println("Checking valid roman representation");
         for (RomanNumber number : numbers) {
