@@ -4,11 +4,11 @@ import com.romanprocessor.beans.RomanNumber;
 
 public class Main {
     public static void main(String[] args) {
-        printValidBooleanRepresentation();
+        testRomanCharactersToArabic();
     }
 
-    private static void printValidBooleanRepresentation() {
-        RomanNumber[] numbers = new RomanNumber[] {
+    private static void testRomanCharactersToArabic() {
+        RomanNumber[] numbers = new RomanNumber[]{
                 new RomanNumber("I"),
                 new RomanNumber("VX"),
                 new RomanNumber("IX"),
@@ -22,5 +22,14 @@ public class Main {
         for (RomanNumber number : numbers) {
             System.out.println(String.format("%s ==> %s", number, number.isValid()));
         }
+        System.out.println("\n\n");
+        System.out.println("Printing arabic representation");
+        for (RomanNumber number : numbers) {
+            if (!number.isValid()) {
+                continue;
+            }
+            System.out.println(String.format("%s ==> %s", number, number.getArabianRepresentation()));
+        }
+        System.out.println("\n\n");
     }
 }

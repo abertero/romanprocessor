@@ -59,7 +59,18 @@ public class RomanNumber {
     private int translateFromRoman() {
         int value = 0;
         for (int i = 0; i < romanCharacters.size(); i++) {
-
+            RomanCharacter currentCharacter = romanCharacters.get(i);
+            if (i + 1 < romanCharacters.size()) {
+                RomanCharacter nextCharacter = romanCharacters.get(i + 1);
+                if (nextCharacter.getValue() > currentCharacter.getValue()) {
+                    value += (nextCharacter.getValue() - currentCharacter.getValue());
+                } else {
+                    value += (nextCharacter.getValue() + currentCharacter.getValue());
+                }
+                i++;
+            } else {
+                value += currentCharacter.getValue();
+            }
         }
         return value;
     }
