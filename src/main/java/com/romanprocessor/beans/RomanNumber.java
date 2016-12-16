@@ -1,6 +1,7 @@
 package com.romanprocessor.beans;
 
 import com.romanprocessor.enums.RomanCharacter;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,10 +46,17 @@ public class RomanNumber {
 
     @Override
     public String toString() {
-        return romanRepresentation;
+        return getRomanRepresentation();
     }
 
     public String getRomanRepresentation() {
+        if (StringUtils.isBlank(romanRepresentation)) {
+            StringBuilder builder = new StringBuilder();
+            for (RomanCharacter character : getRomanCharacters()) {
+                builder.append(character.name());
+            }
+            romanRepresentation = builder.toString();
+        }
         return romanRepresentation;
     }
 
