@@ -14,6 +14,11 @@ public enum RomanCharacter {
     V(5, false, false, null),
     I(1, true, true, Arrays.asList(new RomanCharacter[]{V, X}));
 
+    public static final int ARRAYS_LENGTH = 3;
+    public static final RomanCharacter[] SUPERIOR_CHARACTERS = new RomanCharacter[]{M, C, X};
+    public static final RomanCharacter[] HALVE_CHARACTERS = new RomanCharacter[]{D, L, V};
+    public static final RomanCharacter[] INFERIOR_CHARACTERS = new RomanCharacter[]{C, X, I};
+
     private int value;
     private boolean canRepeatThreeTimesInARow;
     private boolean canBeSubstracted;

@@ -9,6 +9,7 @@ import java.util.List;
 public class RomanNumber {
 
     private static final int MAX_REPEAT_TIMES = 3;
+    private static final int MAX_ROMAN_VALUE = 3999;
 
     private List<RomanCharacter> romanCharacters;
     private String romanRepresentation;
@@ -83,7 +84,40 @@ public class RomanNumber {
     }
 
     private List<RomanCharacter> translateIntoRoman() {
-        return null;
+        if (arabianRepresentation > MAX_ROMAN_VALUE) {
+            return null;
+        }
+        int convertionHelper = arabianRepresentation;
+        List<RomanCharacter> results = new ArrayList<RomanCharacter>();
+        while (convertionHelper >= RomanCharacter.M.getValue()) {
+            results.add(RomanCharacter.M);
+            convertionHelper -= RomanCharacter.M.getValue();
+        }
+
+        for (int i = 0; i < RomanCharacter.ARRAYS_LENGTH; i++) {
+            RomanCharacter currentSuperior = RomanCharacter.SUPERIOR_CHARACTERS[i];
+            RomanCharacter currentHalve = RomanCharacter.HALVE_CHARACTERS[i];
+            RomanCharacter currentInferior = RomanCharacter.INFERIOR_CHARACTERS[i];
+
+            if (convertionHelper >= 9 * currentInferior.getValue()) {
+                results.add(currentInferior);
+                results.add(currentSuperior);
+                convertionHelper -= 9 * currentInferior.getValue();
+            } else if (convertionHelper >= currentHalve.getValue()) {
+                results.add(currentHalve);
+                convertionHelper -= currentHalve.getValue();
+            } else if (convertionHelper >= 4 * currentInferior.getValue()) {
+                results.add(currentInferior);
+                results.add(currentHalve);
+                convertionHelper -= 4 * currentInferior.getValue();
+            } else {
+                while (convertionHelper >= currentInferior.getValue()) {
+                    results.add(currentInferior);
+                    convertionHelper -= currentInferior.getValue();
+                }
+            }
+        }
+        return results;
     }
 
     private boolean checkValidRomanRepresentation() {
