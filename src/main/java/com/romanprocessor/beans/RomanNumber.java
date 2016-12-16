@@ -104,19 +104,4 @@ public class RomanNumber {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        RomanNumber[] numbers = new RomanNumber[] {
-                new RomanNumber("I"),
-                new RomanNumber("VX"),
-                new RomanNumber("IX"),
-                new RomanNumber("XXX"),
-                new RomanNumber("XXXX"),
-                new RomanNumber("MMXVI")
-        };
-        System.out.println("Checking valid roman representation");
-        for (RomanNumber number : numbers) {
-            System.out.println(String.format("%s ==> %s", number, number.checkValidRomanRepresentation()));
-        }
-    }
 }
