@@ -2,7 +2,7 @@ package com.romanprocessor;
 
 import com.romanprocessor.beans.RomanNumber;
 
-public class Main {
+public class RomanProcessorMain {
     public static void main(String[] args) {
         testRomanCharactersToArabic();
         testArabicCharactersToRoman();
