@@ -50,7 +50,7 @@ public class MetamodelProcessor {
         String[] splittedSentence = stringSentence.split(Keywords.SPLIT_TOKEN.getWord());
         if (stringSentence.contains(Keywords.CREDITS.getWord())) {
             int indexOfIs = indexOfWord(splittedSentence, Keywords.IS.getWord());
-            if (indexOfIs == -1 || splittedSentence.length - 2 != indexOfIs) {
+            if (indexOfIs == -1 || splittedSentence.length - 3 != indexOfIs) {
                 return DEFAULT_RESPONSE;
             }
             int totalCredits = Integer.parseInt(splittedSentence[indexOfIs + 1]);
@@ -101,5 +101,13 @@ public class MetamodelProcessor {
             ++i;
         }
         return -1;
+    }
+
+    @Override
+    public String toString() {
+        return "MetamodelProcessor{" +
+                "wordToRoman=" + wordToRoman +
+                ", resourceToCredits=" + resourceToCredits +
+                '}';
     }
 }
