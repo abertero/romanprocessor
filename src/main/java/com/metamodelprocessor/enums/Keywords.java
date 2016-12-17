@@ -2,8 +2,8 @@ package com.metamodelprocessor.enums;
 
 public enum Keywords {
     SPLIT_TOKEN(" ", 0, null), IS("is", 1, ProcessorType.DEFINITION),
-    CREDITS("Credits", 1, ProcessorType.DEFINITION), HOW_MUCH("How much is", 3, ProcessorType.QUERY),
-    HOW_MANY("How many Credits is", 4, ProcessorType.QUERY);
+    CREDITS("Credits", 1, ProcessorType.DEFINITION), HOW_MUCH("how much is", 3, ProcessorType.QUERY),
+    HOW_MANY("how many Credits is", 4, ProcessorType.QUERY), QUESTION_MARK("?", 1, null);
 
     private String word;
     private int density;
